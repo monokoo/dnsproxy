@@ -462,7 +462,7 @@ struct xoption options[] = {
 	{'P', "remote-port", xargument_required, NULL, -1},
 	{'R', "remote-addr", xargument_required, NULL, -1},
 	{'f', "hosts-file", xargument_required, NULL, -1},
-	{0, "disable-cache", xargument_no, &disable_cache, 1},
+	{'D', "disable-cache", xargument_no, &disable_cache, 1},
 	{0, NULL, xargument_no, NULL, 0},
 };
 
@@ -481,6 +481,8 @@ static void display_help()
 		"                       (connect remote server in tcp, default no)\n"
 		"  -f <file> or --hosts-file=<file>\n"
 		"                       (user-defined hosts file)\n"
+		"  -D or --disable_cache\n"
+		"                       (disable DNS cache, default no)\n"
 		"  -h, --help           (print help and exit)\n"
 		"  -v, --version        (print version and exit)\n");
 };
@@ -519,6 +521,9 @@ int main(int argc, const char* argv[])
 			break;
 		case 'f':
 			hosts_file = optarg;
+			break;
+		case 'D':
+			disable_cache = 1;
 			break;
 		case 'd':
 			use_daemon = 1;
