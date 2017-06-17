@@ -493,11 +493,11 @@ int main(int argc, const char* argv[])
 	int opt, optind;
 	const char *optarg;
 	int use_daemon = 0;
-	int remote_tcp = 1;
+	int remote_tcp = 0;
 	int transport_timeout = 5;
 	const char *hosts_file = NULL;
 	const char *remote_addr = "8.8.8.8";
-	unsigned short local_port = 7913, remote_port = 53;
+	unsigned short local_port = 53, remote_port = 53;
 
 	optind = 0;
 	opt = xgetopt(argc, argv, options, &optind, &optarg);
